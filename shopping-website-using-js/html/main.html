@@ -1,0 +1,109 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link href="https://fonts.googleapis.com/css?family=Sofia" rel='stylesheet'>
+<link rel="stylesheet" href="../css/main.css">
+<script src="../js/main.js"></script>
+<body onload="myfun()">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light" style="border-bottom: none;">
+
+        <div class="container">
+
+            <a class="navbar-brand text title" href="/" style="color:white">ShopWithUs</a>
+
+
+                <ul class="nav navbar-nav pull-sm-right">
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile" style="color:white">Profile</a>
+                    </li>
+                    <li class="nav-item" style="cursor: pointer;">
+                        <a href="cart.html" class="btn btn-success btn-sm mx-3 mt-1" >
+                            <i class="fa fa-shopping-cart"></i> Cart
+                            <span class="badge badge-light" id="cart"></span>
+                        </a>
+                    </li>
+					<li class="nav-item">
+                        <a class="nav-link" onclick="logout()" style="color:white">LogOut</a>
+                    </li>
+                    <li class="nav-item" *ngIf="isAdmin()">
+                        <a class="nav-link" onclick="addProduct()" style="color:white">AddProduct</a>
+                    </li>
+                </ul>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <ul class="nav navbar-nav pull-sm-left">
+                        <li class="nav-item">
+                                <a class="nav-link" onclick="filters('All')" style="color:white">All</a>
+                            </li>
+
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" onclick="filters('clothes')" style="color:white">Tops & blouse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="filters('clothes')" style="color:white">T-shirts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="filters('clothes')" style="color:white">Shirts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="filters('clothes')" style="color:white">Bottomwear</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="filters('clothes')" style="color:white">Activewear</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="filters('clothes')" style="color:white">Nightwear</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="filters('clothes')" style="color:white">Clothes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="filters('footwear')" style="color:white">Footwears</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="filters('Accessories')" style="color:white">Accessories</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="filters('Gadgets')" style="color:white">Gadgets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="filters('Skincare')" style="color:white">Skincare </a>
+                    </li>
+                </ul>
+
+        </div>
+    </nav>
+</header>
+
+<div class="container-fluid" style="display: inline-flex;padding-top:10px;padding-left:0px;padding-right:0px;">
+    <div class="col-sm-3">
+                    <div class="card1 col-sm-10 mt-3 ml-2 u bg-light">
+                    
+                            <div class="card-body" >
+                              <h2 class="card-title ml-4"><b>Price Range</b></h2>
+                              <hr/>
+                              <form >
+                                    <input type="radio" (change)="pricefilters($event,500,1000)" name="range" value="0">&nbsp;&nbsp;&nbsp;<b>500-1000</b><br /><br />
+                                    <input type="radio" (change)="pricefilters($event,1000,2000)" name="range" value="0">&nbsp;&nbsp;&nbsp;<b>1000-2000</b><br /><br />
+                                    <input type="radio"  (change)="pricefilters($event,2000,4000)"name="range" value="0">&nbsp;&nbsp;&nbsp;<b>2000-4000</b><br /><br />
+                                    <input type="radio" (change)="pricefilters($event,4000,15000)"name="range" value="0">&nbsp;&nbsp;&nbsp;<b>Above 4000</b><br /><br />
+                                </form>
+                    
+                            </div>
+                          </div>
+                          </div>
+
+    <div class="col-sm-9" >
+        <div id="items">
+   
+    </div>
+</div>
+</div>
+<hr></body>
